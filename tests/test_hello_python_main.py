@@ -1,14 +1,14 @@
 #!/usr/bin/env python
 
-"""Tests for `hello_python_main` package."""
+"""Tests for `src` package."""
 
 import unittest
 
-from hello_python_main import hello_python_main
+from src import hello_python_main
 
 
 class TestHello_python_main(unittest.TestCase):
-    """Tests for `hello_python_main` package."""
+    """Tests for `src` package."""
 
     def setUp(self):
         """Set up test fixtures, if any."""
