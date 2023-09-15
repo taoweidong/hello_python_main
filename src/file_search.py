@@ -2,6 +2,7 @@ import concurrent.futures
 import hashlib
 import logging
 import os
+import re
 
 
 class FileSearchResult:
@@ -51,9 +52,14 @@ class FileSearchTool:
             with open(file_path, "r", encoding="utf-8") as f:
                 lines = f.readlines()
                 for line_number, line in enumerate(lines, 1):
-                    if keyword in line:
-                        result_obj = FileSearchResult(file_path, line_number, line.strip())
-                        results.append(result_obj)
+                    if isinstance(keyword, str):  # 字符串匹配模式
+                        if keyword in line:
+                            result_obj = FileSearchResult(file_path, line_number, line.strip())
+                            results.append(result_obj)
+                    elif isinstance(keyword, re.Pattern):  # 正则表达式匹配模式
+                        if re.search(keyword, line):
+                            result_obj = FileSearchResult(file_path, line_number, line.strip())
+                            results.append(result_obj)
         except UnicodeDecodeError:
             self.logger.error("文件 %s 的编码异常，无法处理。", file_path)
         except Exception as e:
