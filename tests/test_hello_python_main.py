@@ -4,8 +4,6 @@
 
 import unittest
 
-from src import hello_python_main
-
 
 class TestHello_python_main(unittest.TestCase):
     """Tests for `src` package."""

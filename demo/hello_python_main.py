@@ -1,7 +1,7 @@
 """Main module."""
 import logging
 
-from src.Test import Test
+from src import Test
 
 logging.basicConfig(level=logging.INFO)
 
