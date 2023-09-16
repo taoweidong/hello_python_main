@@ -36,7 +36,7 @@ setup(
     keywords='src',
     name='src',
     packages=find_packages(include=['src', 'src.*']),
-    test_suite='tests',
+    test_suite='test',
     tests_require=test_requirements,
     url='https://github.com/taowd@outlook.com/hello_python_main',
     version='0.1.0',
